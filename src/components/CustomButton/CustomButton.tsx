@@ -5,16 +5,20 @@ interface CustomButtonProps {
   onPress: (event: GestureResponderEvent) => void;
   text: string;
   type?: 'PRIMARY' | 'TERTIARY'; // Define los tipos permitidos para `type`
+  bgColor?: string; // Propiedad opcional para el color de fondo
+  fgColor?: string; // Propiedad opcional para el color del texto
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ onPress, text, type = 'PRIMARY' }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({ onPress, text, type = 'PRIMARY', bgColor, fgColor }) => {
   const containerStyle = [
     styles.container,
     type === 'PRIMARY' ? styles.container_PRIMARY : styles.container__TERTIARY,
+    bgColor ? { backgroundColor: bgColor } : {},
   ];
   const textStyle = [
     styles.text,
-    type === 'TERTIARY' ? styles.text_TERTIARY : {}, // Asegúrate de tener un estilo para `text_TERTIARY`
+    type === 'TERTIARY' ? styles.text_TERTIARY : {},
+    fgColor ? { color: fgColor } : {},
   ];
 
   return (
