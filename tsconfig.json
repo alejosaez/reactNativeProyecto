@@ -1,3 +1,24 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["dom", "es2015"],
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": ["src/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./src/styles"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/styles/styled-components.native.d.ts"],
+  "exclude": ["node_modules"]
 }
