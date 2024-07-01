@@ -4,22 +4,28 @@ import logo from '../../../assets/images/logo.jpg';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
+
 const SingInScreen: React.FC = () => {
   const [userName, setUserName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  
 
   const { height } = useWindowDimensions();
 
-  const handlePress = (event: GestureResponderEvent) => {
-    console.log('Button pressed');
+  const  onSingInPressed = (event: GestureResponderEvent) => {
+    console.warn("Sign in");
   };
+  const onForgotPasswordPressed=(event: GestureResponderEvent)=>{
+    console.warn("Forgot Password"); 
+   }
 
   return (
     <View style={styles.root}>
       <Image source={logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode='contain' />
       <CustomInput placeholder="Username" value={userName} setValue={setUserName} />
       <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
-      <CustomButton onPress={handlePress}/>
+      <CustomButton text="Sign In" onPress={onSingInPressed}/>
+      <CustomButton text="Forgot Password?" onPress={onForgotPasswordPressed} type="TERTIARY"/>
     </View>
   );
 };
