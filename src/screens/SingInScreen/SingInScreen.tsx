@@ -6,6 +6,7 @@ import {
   StyleSheet,
   useWindowDimensions,
   GestureResponderEvent,
+  ScrollView
 } from 'react-native';
 import logo from '../../../assets/images/logo.jpg';
 import CustomInput from '../../components/CustomInput/CustomInput';
@@ -40,6 +41,7 @@ console.warn('onSingUpPress')
   };
 
   return (
+    <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.root}>
       <Image
         source={logo}
@@ -85,6 +87,7 @@ console.warn('onSingUpPress')
         type="TERTIARY"
       />
     </View>
+    </ScrollView>
   );
 };
 
