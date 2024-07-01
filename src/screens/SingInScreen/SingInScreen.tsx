@@ -1,12 +1,39 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native';
-import logo from "../../../assets/images/logo.jpeg"
-const SingInScreen = () => {
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, useWindowDimensions, GestureResponderEvent } from 'react-native';
+import logo from '../../../assets/images/logo.jpg';
+import CustomInput from '../../components/CustomInput/CustomInput';
+import CustomButton from '../../components/CustomButton/CustomButton';
+
+const SingInScreen: React.FC = () => {
+  const [userName, setUserName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const { height } = useWindowDimensions();
+
+  const handlePress = (event: GestureResponderEvent) => {
+    console.log('Button pressed');
+  };
+
   return (
-    <View>
-      <Text>Hola</Text>
+    <View style={styles.root}>
+      <Image source={logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode='contain' />
+      <CustomInput placeholder="Username" value={userName} setValue={setUserName} />
+      <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
+      <CustomButton onPress={handlePress}/>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  root: {
+    alignItems: "center",
+    padding: 20,
+  },
+  logo: {
+    width: "70%",
+    maxWidth: 300,
+    maxHeight: 200,
+  },
+});
 
 export default SingInScreen;
