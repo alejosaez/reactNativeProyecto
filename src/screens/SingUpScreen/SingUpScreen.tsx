@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -9,19 +9,32 @@ import {
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons'; // Corregir la ruta de importación
+import {useNavigation, NavigationProp} from '@react-navigation/native';
+
+type RootStackParamList = {
+  Home: undefined;
+  SignIn: undefined;
+  ForgotPassword: undefined;
+  SignUp: undefined;
+  ConfirmEmail:undefined;
+};
+
+type NavigationProps = NavigationProp<RootStackParamList>;
 
 const SingUpScreen: React.FC = () => {
   const [userName, setUserName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [passwordRepeat, setPasswordRepeat] = useState<string>('');
+  const navigation = useNavigation<NavigationProps>();
+
 
   const onRegisterPressed = (event: GestureResponderEvent) => {
-    console.warn('Register');
+    navigation.navigate('ConfirmEmail')
   };
 
   const onSingInPress = (event: GestureResponderEvent) => {
-    console.warn('onSingInPress');
+    navigation.navigate('SignIn')
   };
 
   const onPrivacypressed = (event: GestureResponderEvent) => {
@@ -42,9 +55,7 @@ const SingUpScreen: React.FC = () => {
           value={userName}
           setValue={setUserName}
         />
-        <CustomInput placeholder="Email" 
-        value={email}
-         setValue={setEmail} />
+        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
         <CustomInput
           placeholder="Password"
           value={password}
@@ -68,7 +79,7 @@ const SingUpScreen: React.FC = () => {
             Privacy Policy
           </Text>
         </Text>
-         <SocialSignInButtons />
+        <SocialSignInButtons />
         <CustomButton
           text="Have an account? Sing in"
           onPress={onSingInPress}

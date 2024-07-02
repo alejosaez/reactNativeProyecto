@@ -9,17 +9,34 @@ import {
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons'; // Corregir la ruta de importación
+import {useNavigation, NavigationProp} from '@react-navigation/native';
+
+
+
+
+
+type RootStackParamList = {
+  Home: undefined;
+  SignIn: undefined;
+  ForgotPassword: undefined;
+  SignUp: undefined;
+  ConfirmEmail:undefined;
+};
+
+type NavigationProps = NavigationProp<RootStackParamList>;
+
 
 const ConfirmEmailScreen: React.FC = () => {
 
   const [code, setCode] = useState<string>('');
+  const navigation = useNavigation<NavigationProps>();
 
   const onConfirmPressed = (event: GestureResponderEvent) => {
-    console.warn('Confirm');
+    navigation.navigate('Home')
   };
 
   const onSingInPress = (event: GestureResponderEvent) => {
-    console.warn('onSingInPress');
+    navigation.navigate('SignIn')
   };
 
   const onResendPress = (event: GestureResponderEvent) => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -9,24 +9,30 @@ import {
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons'; // Corregir la ruta de importación
+import {useNavigation, NavigationProp} from '@react-navigation/native';
+
+type RootStackParamList = {
+  Home: undefined;
+  SignIn: undefined;
+  ForgotPassword: undefined;
+  SignUp: undefined;
+  ConfirmEmail: undefined;
+  NewPassword: undefined;
+};
+
+type NavigationProps = NavigationProp<RootStackParamList>;
 
 const ForgotPasswordScreen: React.FC = () => {
-
   const [userName, setUsername] = useState<string>('');
+  const navigation = useNavigation<NavigationProps>();
 
   const onSendPressed = (event: GestureResponderEvent) => {
-    console.warn('onSendPressed');
+    navigation.navigate('NewPassword');
   };
 
   const onSingInPress = (event: GestureResponderEvent) => {
-    console.warn('onSingInPress');
+    navigation.navigate('SignIn');
   };
-
-  const onResendPress = (event: GestureResponderEvent) => {
-    console.warn('onResendPress');
-  };
-
-
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -38,10 +44,9 @@ const ForgotPasswordScreen: React.FC = () => {
           value={userName}
           setValue={setUsername}
         />
-        
+
         <CustomButton text="Send" onPress={onSendPressed} />
 
-        
         <CustomButton
           text="Back to Sing In"
           onPress={onSingInPress}

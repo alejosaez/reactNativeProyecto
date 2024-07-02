@@ -8,21 +8,33 @@ import {
 } from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons'; // Corregir la ruta de importación
+import {useNavigation, NavigationProp} from '@react-navigation/native';
+
+type RootStackParamList = {
+  Home: undefined;
+  SignIn: undefined;
+  ForgotPassword: undefined;
+  SignUp: undefined;
+  ConfirmEmail: undefined;
+  NewPassword: undefined;
+};
+
+type NavigationProps = NavigationProp<RootStackParamList>;
 
 const NewPasswordScreen: React.FC = () => {
   const [code, setCode] = useState<string>('');
   const [newPassword, setNewPassword] = useState<string>('');
+  const navigation = useNavigation<NavigationProps>();
+
+
 
   const onSubmitPressed = (event: GestureResponderEvent) => {
-    console.warn('onSubmitPressed');
+    navigation.navigate('Home')
   };
 
   const onSingInPress = (event: GestureResponderEvent) => {
-    console.warn('onSingInPress');
+    navigation.navigate('SignIn')
   };
-
-  
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
