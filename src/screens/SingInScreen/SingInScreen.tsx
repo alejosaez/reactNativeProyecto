@@ -11,7 +11,7 @@ import {
 import logo from '../../../assets/images/logo.jpg';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-
+import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 const SingInScreen: React.FC = () => {
   const [userName, setUserName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -25,17 +25,7 @@ const SingInScreen: React.FC = () => {
     console.warn('Forgot Password');
   };
 
-  const onSingInFacebookPressed = (event: GestureResponderEvent) => {
-    console.warn('Facebook');
-  };
-
-  const onSingInGooglePressed = (event: GestureResponderEvent) => {
-    console.warn('Google');
-  };
-
-  const onSingInApplePressed = (event: GestureResponderEvent) => {
-    console.warn('Apple');
-  };
+ 
   const onSingUpPress = (event:GestureResponderEvent)=>{
 console.warn('onSingUpPress')
   };
@@ -65,22 +55,7 @@ console.warn('onSingUpPress')
         onPress={onForgotPasswordPressed}
         type="TERTIARY"
       />
-      <CustomButton
-        text="Sign In With Facebook"
-        bgColor="#E7EaF4"
-        fgColor="##4765A9"
-        onPress={onSingInFacebookPressed}
-      />
-      <CustomButton
-        text="Sign In With Google"
-        bgColor="#E7EaF4"
-        fgColor="#DD4D44"
-        onPress={onSingInGooglePressed}
-      />
-      <CustomButton text="Sign In With Apple"
-      bgColor="#e3e3e3"
-      fgColor="#363636"
-       onPress={onSingInApplePressed} />
+      <SocialSignInButtons/>
          <CustomButton
         text="Don't have an account? Create one"
         onPress={onSingUpPress}

@@ -10,7 +10,7 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons'; // Corregir la ruta de importación
 
-const SingUpScreen: React.FC = () => {
+const ConfirmEmailScreen: React.FC = () => {
   const [userName, setUserName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -101,4 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SingUpScreen;
+export default ConfirmEmailScreen;
