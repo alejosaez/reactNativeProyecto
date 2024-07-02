@@ -10,7 +10,7 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons'; // Corregir la ruta de importación
 
-const ConfirmEmailScreen: React.FC = () => {
+const ForgotPasswordScreen: React.FC = () => {
 
   const [code, setCode] = useState<string>('');
 
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ConfirmEmailScreen;
+export default ForgotPasswordScreen;

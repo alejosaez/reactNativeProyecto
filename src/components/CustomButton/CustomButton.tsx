@@ -4,20 +4,27 @@ import { View, Text, StyleSheet, Pressable, GestureResponderEvent } from 'react-
 interface CustomButtonProps {
   onPress: (event: GestureResponderEvent) => void;
   text: string;
-  type?: 'PRIMARY' | 'TERTIARY'; // Define los tipos permitidos para `type`
-  bgColor?: string; // Propiedad opcional para el color de fondo
-  fgColor?: string; // Propiedad opcional para el color del texto
+  type?: 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
+  bgColor?: string;
+  fgColor?: string;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ onPress, text, type = 'PRIMARY', bgColor, fgColor }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({ 
+  onPress, 
+  text, 
+  type = 'PRIMARY', 
+  bgColor, 
+  fgColor 
+}) => {
   const containerStyle = [
     styles.container,
-    type === 'PRIMARY' ? styles.container_PRIMARY : styles.container__TERTIARY,
+    styles[`container_${type}` as keyof typeof styles],
     bgColor ? { backgroundColor: bgColor } : {},
   ];
+  
   const textStyle = [
     styles.text,
-    type === 'TERTIARY' ? styles.text_TERTIARY : {},
+    styles[`text_${type}` as keyof typeof styles],
     fgColor ? { color: fgColor } : {},
   ];
 
@@ -39,15 +46,25 @@ const styles = StyleSheet.create({
   container_PRIMARY: {
     backgroundColor: '#3B71F3',
   },
-  container__TERTIARY: {
+  container_SECONDARY: {
+    borderColor: '#3B71F3',
+    borderWidth: 2,
+  },
+  container_TERTIARY: {
     // Agrega los estilos necesarios para TERTIARY si es diferente
   },
   text: {
     fontWeight: 'bold',
     color: 'white',
   },
+  text_PRIMARY: {
+    color: 'white',
+  },
+  text_SECONDARY: {
+    color: '#3B71F3',
+  },
   text_TERTIARY: {
-    color: 'gray', // Define el color para el estilo TERTIARY
+    color: 'gray',
   },
 });
 
