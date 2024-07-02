@@ -5,9 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import SingInScreen from "./src/screens/SingInScreen/SingInScreen";
 import SingUpScreen from "./src/screens/SingUpScreen/SingUpScreen";
 import ConfirmEmailScreen from "./src/screens/ConfirmEmailScreen/ConfirmEmailScreen"
+import ForgotPasswordScreen from "./src/screens/ForgotPasswordScreen/ForgotPasswordScreen"
 const App: React.FC = () => {
   return (
-       <ConfirmEmailScreen/>
+       <ForgotPasswordScreen/>
   );
 };
 

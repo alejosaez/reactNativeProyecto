@@ -12,10 +12,10 @@ import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSign
 
 const ForgotPasswordScreen: React.FC = () => {
 
-  const [code, setCode] = useState<string>('');
+  const [userName, setUsername] = useState<string>('');
 
-  const onConfirmPressed = (event: GestureResponderEvent) => {
-    console.warn('Confirm');
+  const onSendPressed = (event: GestureResponderEvent) => {
+    console.warn('onSendPressed');
   };
 
   const onSingInPress = (event: GestureResponderEvent) => {
@@ -31,20 +31,16 @@ const ForgotPasswordScreen: React.FC = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.root}>
-        <Text style={styles.title}>Confirm your email</Text>
+        <Text style={styles.title}>Reset your Password</Text>
 
         <CustomInput
-          placeholder="Enter your confirmation code"
-          value={code}
-          setValue={setCode}
+          placeholder="UserName"
+          value={userName}
+          setValue={setUsername}
         />
         
-        <CustomButton text="Confirm" onPress={onConfirmPressed} />
-        <CustomButton
-          text="Resend Code"
-          onPress={onResendPress}
-          type="SECONDARY"
-        />       
+        <CustomButton text="Send" onPress={onSendPressed} />
+
         
         <CustomButton
           text="Back to Sing In"
