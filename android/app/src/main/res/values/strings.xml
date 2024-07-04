@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">reactNativeProyecto</string>
+    <string name="app_name">Primera App React Native</string>
+    <string name="facebook_app_id">500488889212547</string>
+    <string name="fb_login_protocol_scheme">fbTU_FACEBOOK_APP_ID</string>
 </resources>
